@@ -1,8 +1,8 @@
 {
-  "name": "FindSomething",
+  "name": "FindSomething - ايجاد شئ ما",
   "version": "2.0.16",
   "manifest_version": 3,
-  "description": "在网页的源代码或js中找到一些有趣的东西",  
+  "description": "البحث عن اشياء مهمة في صفحات الموقع او ملفات الجافا سكربت لايجاد معلومات حساسة ممكن ان تفيد المهاجمين الاخلاقيين",  
   "permissions": [     
     "tabs",
     "storage",

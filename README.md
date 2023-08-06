@@ -13,3 +13,7 @@
 حسابي علي موقع اكس او تويتر:
 https://twitter.com/0xElkomy
 </p>
+
+
+## <h2 dir="rtl" align="right"> شكرا</h2>
+@momosecurity

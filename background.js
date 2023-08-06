@@ -705,6 +705,8 @@ var nuclei_regex = [
     /["']?[\w_-]*?bucket[\w_-]*?["']?[^\S\r\n]*[=:][^\S\r\n]*["']?[\w-]+["']?/gi,
     /["']?[\w_-]*?token[\w_-]*?["']?[^\S\r\n]*[=:][^\S\r\n]*["']?[\w-]+["']?/gi,
     /["']?[-]+BEGIN \w+ PRIVATE KEY[-]+/gi,
+    /* اضافات خالد */
+    /(?:\"|')?AWS_SECRET_ACCESS_KEY(?:\"|')?\s*:\s*(?:\"|')?[A-Za-z0-9\/+=]{40}(?:\"|')?/gi,    
 ]
 var tab_url = {};
 var selected_id = -1;
@@ -733,7 +735,8 @@ function unique(arr1){
   // }
   return arr2
 }
-//查找search_data中是否已经存在了，如果已存在则不返回
+//البحث عن وجود البيانات في search_data، وإذا كانت موجودة بالفعل فلا تقم بإعادتها.
+
 function find(arr1,arr2) {
   var arr3 = []
   arr1.forEach(function (item,index,array) {
@@ -743,7 +746,8 @@ function find(arr1,arr2) {
   })
   return arr3
 }
-//去重合并两个数组 并集
+//دمج وتوحيد مصفوفتين وإزالة العناصر المكررة.
+
 function add(arr1,arr2) {
   if(!arr1){
     return arr2
@@ -759,7 +763,7 @@ function add(arr1,arr2) {
   return arr2
 }
 
-//交集
+//التقاطع
 function jiaoji(arr1,arr2) {
   var arr3 = [];
   arr1.forEach(function (item,index,array) {
@@ -802,7 +806,7 @@ function sub_1(arr1) {
   return arr3
 }
 
-// 提取js中的敏感信息，使用nuclei的正则
+// استخراج المعلومات من خلال التعابير الخاصة باداة - nuclei
 function get_secret(data) {
     // console.log("get_secret");
     // console.time();
@@ -822,7 +826,7 @@ function get_secret(data) {
     return result;
 }
 
-// 数据提取放到background里，避免前端加载时阻塞。
+// نقل استخراج البيانات إلى الخلفية (Background) لتجنب تعطيل التحميل الأمامي (Frontend) أثناء التحميل.
 function extract_info(data) {
   // console.log('extraInfo');
   var extract_data = {}
@@ -907,7 +911,7 @@ function refresh_count() {
     if (k == "done" || k == "tasklist" || k == "donetasklist" || k == "current" || k == "pretasknum")
       continue;
     const v = search_data[cur][k];
-    if (v == "🈚️" || v == "") continue;
+    if (v == "🚫" || v == "") continue;
     cnt++;
   }
   chrome.action.setBadgeText({ text: "" + cnt });

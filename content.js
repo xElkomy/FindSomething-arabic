@@ -9,7 +9,7 @@
     var source = document.documentElement.outerHTML;
     var hostPath;
     var urlPath;
-    var urlWhiteList = ['.google.com','.amazon.com','portswigger.net'];
+    var urlWhiteList = ['.google.com','.amazon.com','portswigger.net','bing.com','hackerone.com','facebook.com'];
     var target_list = [];
     var source_href = source.match(/href=['"].*?['"]/g);
     var source_src = source.match(/src=['"].*?['"]/g);
@@ -21,7 +21,7 @@
         }
         for(var i = 0;i < urlWhiteList.length;i++){
             if(host.endsWith(urlWhiteList[i]) || domain_host.endsWith(urlWhiteList[i])){
-                console.log('域名在白名单中，跳过当前页')
+                console.log('اسم المجال في القائمة البيضاء ، تخطي الصفحة الحالية')
                 return ;
             }
         }
@@ -106,43 +106,43 @@ chrome.storage.local.get(["global_float"], function(settings){
     }
     // console.log(settings["global_float"]);
     // console.log("findsomething-divglobal_float");
-    // 使用自定义标签
+    // استخدم تسميات مخصصة
     const body = document.getElementsByTagName('html')[0];
     const div = document.createElement('div');
     div.setAttribute("id","findsomething-float-div");
     div.innerHTML = `
-    <findsomething-div id="findsomething_neko" style="width:410px;max-height:500px;font-size:14px;color:#000000;box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1) ;background-color: #fff;border-radius: 5px;border: 1px solid #ebebeb;left:20px;top:20px;position: fixed;z-index: 1000000;overflow:scroll;">
+    <findsomething-div dir="rtl" align="right" id="findsomething_neko" style="width:410px;max-height:500px;font-size:14px;color:#000000;box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1) ;background-color: #fff;border-radius: 5px;border: 1px solid #ebebeb;right:20px;top:20px;position: fixed;z-index: 1000000;overflow:scroll;">
           <findsomething-div id="findsomething_neko-title" style="display: flex;justify-content: space-between;">
-            <findsomething-div id="findsomething_taskstatus" style="height: 34px; line-height: 34px; margin-left: 10px;"></findsomething-div>
+            <findsomething-div id="findsomething_taskstatus" style="height: 34px; line-height: 34px; margin-right: 10px;"></findsomething-div>
             <findsomething-div style="cursor: pointer;margin-top: 2px;margin-right: 10px;" onclick='(function(){document.getElementById("findsomething-float-div").removeChild(document.getElementById("neko"));})()'>隐藏</findsomething-div>
           </findsomething-div>
             <findsomething-div style="width: 300px; margin-top: 10px;">
-                <findsomething-div class="findsomething-title">IP<button type="button" class="finsomething_copy" name="ip">复制</button></findsomething-div>
-                <findsomething-p id="findsomething_ip" style="word-break:break-word;margin-left:10px;">🈚️</findsomething-p>
-                <findsomething-div class="findsomething-title">IP_PORT<button class="findsomething_copy" name="ip_port">复制</button></findsomething-div>
-                <findsomething-p id="findsomething_ip_port" style="word-break:break-word;margin-left:10px;">🈚️</findsomething-p>
-                <findsomething-div class="findsomething-title">域名<button class="findsomething_copy" name="domain">复制</button></findsomething-div>
-                <findsomething-p id="findsomething_domain" style="word-break:break-word;margin-left:10px;">🈚️</findsomething-p>
-                <findsomething-div class="findsomething-title">身份证<button class="findsomething_copy" name="sfz">复制</button></findsomething-div>
-                <findsomething-p id="findsomething_sfz" style="word-break:break-word;margin-left:10px;">🈚️</findsomething-p>
-                <findsomething-div class="findsomething-title">手机号<button class="findsomething_copy" name="mobile">复制</button></findsomething-div>
-                <findsomething-p id="findsomething_mobile" style="word-break:break-word;margin-left:10px;">🈚️</findsomething-p>
-                <findsomething-div class="findsomething-title">邮箱<button class="findsomething_copy" name="mail">复制</button></findsomething-div>
-                <findsomething-p id="findsomething_mail" style="word-break:break-word;margin-left:10px;">🈚️</findsomething-p>
-                <findsomething-div class="findsomething-title">JWT<button class="findsomething_copy" name="jwt">复制</button></findsomething-div>
-                <findsomething-p id="findsomething_jwt" style="word-break:break-word;margin-left:10px;">🈚️</findsomething-p>
-                <findsomething-div class="findsomething-title">算法<button class="findsomething_copy" name="algorithm">复制</button></findsomething-div>
-                <findsomething-p id="findsomething_algorithm" style="word-break:break-word;margin-left:10px;">🈚️</findsomething-p>
-                <findsomething-div class="findsomething-title">Secret<button class="findsomething_copy" name="secret">复制</button></findsomething-div>
-                <findsomething-p id="findsomething_secret" style="word-break:break-word;margin-left:10px;">🈚️</findsomething-p>
-                <findsomething-div class="findsomething-title">Path<button class="findsomething_copy" name="path">复制</button></findsomething-div>
-                <findsomething-p id="findsomething_path" style="word-break:break-word;margin-left:10px;">🈚️</findsomething-p>
-                <findsomething-div class="findsomething-title">IncompletePath<button class="findsomething_copy" name="incomplete_path">复制</button></findsomething-div>
-                <findsomething-p id="findsomething_incomplete_path" style="word-break:break-word;margin-left:10px;">🈚️</findsomething-p>
-                <findsomething-div class="findsomething-title">Url<button class="findsomething_copy" name="url">复制</button></findsomething-div>
-                <findsomething-p id="findsomething_url" style="word-break:break-word;margin-left:10px;">🈚️</findsomething-p>
-                <findsomething-div class="findsomething-title">StaticUrl<button class="findsomething_copy" name="static">复制</button></findsomething-div>
-                <findsomething-p id="findsomething_static" style="word-break:break-word;margin-left:10px;">🈚️</findsomething-p>
+                <findsomething-div class="findsomething-title">IP<button type="button" class="finsomething_copy" name="ip"><p dir="rtl" align="right">نسخ</p></button></findsomething-div>
+                <findsomething-p id="findsomething_ip" style="word-break:break-word;margin-right:10px;">🚫</findsomething-p>
+                <findsomething-div class="findsomething-title"><p dir="rtl" align="right">بورتات الايبي</p><button class="findsomething_copy" name="ip_port"><p dir="rtl" align="right">نسخ</p></button></findsomething-div>
+                <findsomething-p id="findsomething_ip_port" style="word-break:break-word;margin-right:10px;">🚫</findsomething-p>
+                <findsomething-div class="findsomething-title"><p dir="rtl" align="right">اسم الدومين </p><button class="findsomething_copy" name="domain"><p dir="rtl" align="right">نسخ</p></button></findsomething-div>
+                <findsomething-p id="findsomething_domain" style="word-break:break-word;margin-right:10px;">🚫</findsomething-p>
+                <findsomething-div class="findsomething-title"><p dir="rtl" align="right">بطاقة التعريف</p><button class="findsomething_copy" name="sfz"><p dir="rtl" align="right">نسخ</p></button></findsomething-div>
+                <findsomething-p id="findsomething_sfz" style="word-break:break-word;margin-right:10px;">🚫</findsomething-p>
+                <findsomething-div class="findsomething-title"><p dir="rtl" align="right">رقم التليفون</p><button class="findsomething_copy" name="mobile"><p dir="rtl" align="right">نسخ</p></button></findsomething-div>
+                <findsomething-p id="findsomething_mobile" style="word-break:break-word;margin-right:10px;">🚫</findsomething-p>
+                <findsomething-div class="findsomething-title"><p dir="rtl" align="right">بريد الالكتروني </p><button class="findsomething_copy" name="mail"><p dir="rtl" align="right">نسخ</p></button></findsomething-div>
+                <findsomething-p id="findsomething_mail" style="word-break:break-word;margin-right:10px;">🚫</findsomething-p>
+                <findsomething-div class="findsomething-title">JWT<button class="findsomething_copy" name="jwt"><p dir="rtl" align="right">نسخ</p></button></findsomething-div>
+                <findsomething-p id="findsomething_jwt" style="word-break:break-word;margin-right:10px;">🚫</findsomething-p>
+                <findsomething-div class="findsomething-title"><p dir="rtl" align="right">الخوارزميات </p><button class="findsomething_copy" name="algorithm"><p dir="rtl" align="right">نسخ</p></button></findsomething-div>
+                <findsomething-p id="findsomething_algorithm" style="word-break:break-word;margin-right:10px;">🚫</findsomething-p>
+                <findsomething-div class="findsomething-title"><p dir="rtl" align="right">اشياء سرية تقريبا</p><button class="findsomething_copy" name="secret"><p dir="rtl" align="right">نسخ</p></button></findsomething-div>
+                <findsomething-p id="findsomething_secret" style="word-break:break-word;margin-right:10px;">🚫</findsomething-p>
+                <findsomething-div class="findsomething-title"><p dir="rtl" align="right">المسار</p><button class="findsomething_copy" name="path"><p dir="rtl" align="right">نسخ</p></button></findsomething-div>
+                <findsomething-p id="findsomething_path" style="word-break:break-word;margin-right:10px;">🚫</findsomething-p>
+                <findsomething-div class="findsomething-title"><p dir="rtl" align="right">المسار غير مكتمل </p><button class="findsomething_copy" name="incomplete_path"><p dir="rtl" align="right">نسخ</p></button></findsomething-div>
+                <findsomething-p id="findsomething_incomplete_path" style="word-break:break-word;margin-right:10px;">🚫</findsomething-p>
+                <findsomething-div class="findsomething-title">Url<button class="findsomething_copy" name="url"><p dir="rtl" align="right">نسخ</p></button></findsomething-div>
+                <findsomething-p id="findsomething_url" style="word-break:break-word;margin-right:10px;">🚫</findsomething-p>
+                <findsomething-div class="findsomething-title">StaticUrl<button class="findsomething_copy" name="static"><p dir="rtl" align="right">نسخ</p></button></findsomething-div>
+                <findsomething-p id="findsomething_static" style="word-break:break-word;margin-right:10px;">🚫</findsomething-p>
             </findsomething-div>
     </findsomething-div>
         <style type="text/css">
@@ -166,12 +166,12 @@ chrome.storage.local.get(["global_float"], function(settings){
         .findsomething-title {
             font-size: 16px;
             font-weight: bold;
-            border-left: 4px solid black;
+            border-right: 4px solid black;
             text-indent: 4px;
             height: 16px;
             line-height: 16px;
             width: 100%;
-            margin-left: 10px;
+            margin-right: 10px;
         }
 
         button{
@@ -185,15 +185,15 @@ chrome.storage.local.get(["global_float"], function(settings){
     var nekoH = neko.offsetHeight;
     var cuntW = 0;
     var cuntH = 0;
-    neko.style.left = parseInt(document.body.offsetWidth - nekoW)+1 + 'px';
+    neko.style.right = parseInt(document.body.offsetWidth - nekoW)+1 + 'px';
     neko.style.top = '50px';
     move(neko, 0, 0);
     function move(obj, w, h) {
-        if (obj.direction === 'left') {
-            obj.style.left = 0 - w + 'px';
+        if (obj.direction === 'right') {
+            obj.style.right = 0 - w + 'px';
         } else if (obj.direction === 'right') {
 
-            obj.style.left = document.body.offsetWidth - nekoW + w + 'px';
+            obj.style.right = document.body.offsetWidth - nekoW + w + 'px';
         }
         if (obj.direction === 'top') {
             obj.style.top = 0 - h + 'px';
@@ -209,17 +209,17 @@ chrome.storage.local.get(["global_float"], function(settings){
 
     var nekotitle = document.querySelector('#findsomething_neko-title');
     nekotitle.onmousedown = function (e) {
-        var nekoL = e.clientX - neko.offsetLeft;
+        var nekoL = e.clientX - neko.offsetright;
         var nekoT = e.clientY - neko.offsetTop;
         document.onmousemove = function (e) {
             cuntW = 0;
             cuntH = 0;
             neko.direction = '';
             neko.style.transition = '';
-            neko.style.left = (e.clientX - nekoL) + 'px';
+            neko.style.right = (e.clientX - nekoL) + 'px';
             neko.style.top = (e.clientY - nekoT) + 'px';
             if (e.clientX - nekoL < 5) {
-                neko.direction = 'left';
+                neko.direction = 'right';
             }
             if (e.clientY - nekoT < 5) {
                 neko.direction = 'top';
@@ -258,7 +258,7 @@ chrome.storage.local.get(["global_float"], function(settings){
         var bodyH = document.body.offsetHeight;
         var nekoT = neko.offsetTop;
         var bodyW = document.body.offsetWidth;
-        var nekoL = neko.offsetLeft;
+        var nekoL = neko.offsetright;
 
         if (nekoT + nekoH > bodyH) {
             neko.style.top = bodyH - nekoH + 'px';
@@ -268,11 +268,11 @@ chrome.storage.local.get(["global_float"], function(settings){
             neko.style.top = bodyH - nekoH + 'px';
         }
         if (nekoL + nekoW > bodyW) {
-            neko.style.left = bodyW - nekoW + 'px';
+            neko.style.right = bodyW - nekoW + 'px';
             cuntW++;
         }
         if (bodyW > nekoL && cuntW > 0) {
-            neko.style.left = bodyW - nekoW + 'px';
+            neko.style.right = bodyW - nekoW + 'px';
         }
 
         // move(neko, nekoW / 2, nekoH / 2);
@@ -335,17 +335,17 @@ function get_info() {
             if(result_data){
                 show_info(result_data);
 
-                taskstatus.textContent = "处理中.."+result_data['donetasklist'].length+"/"+result_data['tasklist'].length;
+                taskstatus.textContent = "تتم المعالجة الان"+result_data['donetasklist'].length+"/"+result_data['tasklist'].length;
             }else{
-                taskstatus.textContent = "处理中..";
+                taskstatus.textContent = "تتم المعالجة الان";
             }
             sleep(100);
             get_info();
             return;
         }
-        taskstatus.textContent = "处理完成："+result_data['donetasklist'].length+"/"+result_data['tasklist'].length;
+        taskstatus.textContent = "اكتمل :"+result_data['donetasklist'].length+"/"+result_data['tasklist'].length;
         show_info(result_data);
-        // 结果不一致继续刷新
+        // النتائج غير متسقة وتستمر في التحديث
         if(result_data['donetasklist'].length!=result_data['tasklist'].length){
             get_info();
         }
