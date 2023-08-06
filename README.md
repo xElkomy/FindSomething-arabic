@@ -20,12 +20,20 @@ https://twitter.com/0xElkomy
 هتنزل الفولد وتنخسه تحطه في 
 Extenions Page
 عندك زي كدا
+</p>
+
 ![Chrome](image.png)
+
+<p dir="rtl" align="right">
 تنسخه وتحطه في البيدج دي 
+</p>
+
 - brave://extensions/
 - chrome://extensions/
+
+<p dir="rtl" align="right">
 او تعمل 
-load unpacked
+load unpacked زي الصورة الي فوق
 </p>
 
 ## <h2 dir="rtl" align="right"> شكرا</h2>
