@@ -858,7 +858,7 @@ function webhook(data) {
     // console.log(data);
     chrome.storage.local.get(["webhook_setting"], function(settings){
         if(!settings || !settings["webhook_setting"] || settings["webhook_setting"] == {} || settings["webhook_setting"] ==undefined){
-            // console.log('获取webhook_setting失败');
+            // console.log('فشل الحصول على إعدادات الويب هوك');
             return;
         }
         
@@ -921,20 +921,20 @@ function refresh_count() {
 }
 
 function persist_tmp_data(tmp_data, req_url, current) {
-    //遍历所有数据类型
+    //"تمرير عبر جميع أنواع البيانات"
     for (var i = 0; i < key.length; i++) {
-        //如果传入的数据没有这个类型，就看下一个
+        //"إذا لم تكن البيانات الممرّرة تحتوي على هذا النوع، انتقل إلى النوع التالي"
         if (tmp_data[key[i]] == null){
           continue;
         }
-        // 把前端的处理放到这里避免重复
+        // "ضع معالجة الواجهة الأمامية هنا لتجنب التكرار"
         if (not_sub_key.indexOf(key[i])<0){
           tmp_data[key[i]] = sub_1(tmp_data[key[i]])
         }
         tmp_data[key[i]].map((item)=>{
             search_data[tmp_data['current']]['source'][item] = req_url
         })
-        //如果search_data有历史数据，进行检查--20230625 这里没看懂，先注释看看
+        //"إذا كان لـ search_data بيانات سابقة، فقم بالتحقق -- 20230625 هنا لم أفهم، سأقوم بتعليقها أولاً وأرى."
         // console.log(tmp_data[key[i]])
         // if (tmp_data['current'] in search_data){
         //   for (var j = 0; j < key.length; j++) {
