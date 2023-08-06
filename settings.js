@@ -37,7 +37,7 @@ document.getElementById("global_float").onclick=function () {
 	chrome.storage.local.get(["global_float"], function(settings){
 		// console.log(settings);
 		chrome.storage.local.set({"global_float": settings["global_float"]==true ? false : true});
-		document.getElementById('global_float').textContent = settings["global_float"]==true ? "已关闭" : "已打开";
+		document.getElementById('global_float').textContent = settings["global_float"]==true ? "مغلق" : "مفتوح";
 	});
 	// console.log(webhook_setting);
 }
@@ -47,7 +47,7 @@ document.getElementById("fetch_timeout").onclick=function () {
 	chrome.storage.local.get(["fetch_timeout"], function(settings){
 		// console.log(settings);
 		chrome.storage.local.set({"fetch_timeout": settings["fetch_timeout"]==true ? false : true});
-		document.getElementById('fetch_timeout').textContent = settings["fetch_timeout"]==true ? "已关闭" : "已打开";
+		document.getElementById('fetch_timeout').textContent = settings["fetch_timeout"]==true ? "مغلق" : "مفتوح";
 	});
 	// console.log(webhook_setting);
 }
@@ -55,7 +55,7 @@ document.getElementById("fetch_timeout").onclick=function () {
 chrome.storage.local.get(["webhook_setting"], function(settings){
 	console.log(settings);
 	if(!settings || settings == {} || !settings["webhook_setting"] ){
-        console.log('获取webhook_setting失败');
+        console.log('webhook_اعدادت');
         return;
     }
 	document.getElementById('url').value = settings["webhook_setting"]['url'];
@@ -64,10 +64,10 @@ chrome.storage.local.get(["webhook_setting"], function(settings){
 	document.getElementById('headers').value = JSON.stringify(settings["webhook_setting"]['headers']);
 });
 chrome.storage.local.get(["global_float"], function(settings){
-	document.getElementById('global_float').textContent = settings["global_float"]==true ? "已打开" : "已关闭";
+	document.getElementById('global_float').textContent = settings["global_float"]==true ? "مفتوح" : "مغلق";
 });
 chrome.storage.local.get(["fetch_timeout"], function(settings){
-	document.getElementById('fetch_timeout').textContent = settings["fetch_timeout"]==true ? "已打开" : "已关闭";
+	document.getElementById('fetch_timeout').textContent = settings["fetch_timeout"]==true ? "مفتوح" : "مغلق";
 });
 chrome.storage.local.get(["allowlist"], function(allowlist){
 	if(allowlist && allowlist["allowlist"]){
