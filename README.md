@@ -36,5 +36,11 @@ Extenions Page
 load unpacked زي الصورة الي فوق
 </p>
 
+
+## <h2 dir="rtl" align="right"> نسخة فايرفوكس</h2>
+
+https://addons.mozilla.org/en-US/firefox/addon/findsomething-%D8%A7%D9%8A%D8%AC%D8%A7%D8%AF-%D8%B4%D8%A6-%D9%85%D8%A7/
+
+
 ## <h2 dir="rtl" align="right"> شكرا</h2>
 @momosecurity
